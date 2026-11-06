@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agihan Tugas — Warna-Warni Warisan Terengganu 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf6ee; --card:#ffffff; --ink:#2a1d17; --muted:#7a6a5f; --line:#eadfce;
+  --maroon:#7d1f2b; --maroon-2:#a0303f; --gold:#c8902e; --gold-soft:#f6e7c8;
+  --teal:#1f6f6b; --teal-soft:#d9efec; --red-soft:#f8dcdc; --red:#b42d2d;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Plus Jakarta Sans",system-ui,sans-serif}
+a{color:var(--maroon)}
+header.hero{
+  background:
+    linear-gradient(100deg, rgba(91,21,32,.95) 0%, rgba(125,31,43,.82) 45%, rgba(125,31,43,.35) 100%),
+    url("img/hero-wau.jpg") center 60%/cover no-repeat;
+  color:#fff; padding:56px 20px 40px; min-height:300px;
+}
+.banner{position:relative;border-radius:var(--radius);overflow:hidden;margin:0 0 20px;height:clamp(150px,26vw,240px);background:#ddd}
+.banner img{width:100%;height:100%;object-fit:cover;display:block}
+.banner figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;color:#fff;font-size:13px;
+  background:linear-gradient(transparent,rgba(30,12,10,.75))}
+.banner figcaption b{font-family:Fraunces,serif;font-size:20px;display:block}
+.posters{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.posters{grid-template-columns:repeat(4,1fr)}}
+.posters button{padding:0;border:0;background:none;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(60,30,20,.12);transition:transform .15s}
+.posters button:hover{transform:translateY(-3px)}
+.posters img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.strip{display:grid;gap:10px;grid-template-columns:repeat(2,1fr);margin-top:14px}
+@media(min-width:760px){.strip{grid-template-columns:repeat(4,1fr)}}
+.strip figure{margin:0}
+.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
+.strip figcaption{font-size:12px;color:var(--muted);margin-top:4px}
+.lb{position:fixed;inset:0;background:rgba(20,10,8,.88);display:none;align-items:center;justify-content:center;z-index:20;padding:20px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:100%;border-radius:8px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.hero .wrap{padding:0}
+.eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--gold-soft);font-weight:600}
+h1{font-family:Fraunces,serif;font-weight:800;font-size:clamp(28px,5vw,44px);line-height:1.05;margin:6px 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#f3e4e4}
+.meta b{color:#fff}
+.countdown{margin-top:16px;display:inline-flex;align-items:baseline;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:999px}
+.countdown b{font-family:Fraunces,serif;font-size:24px;color:var(--gold-soft)}
+nav.tabs{position:sticky;top:0;z-index:5;background:rgba(251,246,238,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
+nav.tabs a{padding:13px 14px;text-decoration:none;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs a.on{color:var(--maroon);border-color:var(--gold)}
+section{padding:26px 0 8px;display:none}
+section.on{display:block}
+h2{font-family:Fraunces,serif;font-size:26px;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.grid{display:grid;gap:14px}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+select,button{font:inherit}
+select{padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;min-width:280px;max-width:100%}
+button{cursor:pointer;border-radius:10px;border:1px solid var(--maroon);background:var(--maroon);color:#fff;padding:9px 14px;font-weight:600}
+button.ghost{background:#fff;color:var(--maroon)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--gold-soft);color:#6b4a10}
+.pill.unit{background:var(--teal-soft);color:var(--teal)}
+.pill.late{background:var(--red-soft);color:var(--red)}
+.pill.done{background:#e3f1df;color:#2f6b2a}
+.task{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.task:first-child{border-top:0}
+.task input{margin-top:4px;width:18px;height:18px;accent-color:var(--teal)}
+.task .t{flex:1}
+.task .t b{display:block;font-weight:600}
+.task.isdone .t b{text-decoration:line-through;color:var(--muted)}
+.task small{color:var(--muted)}
+.right{text-align:right;min-width:92px}
+.due{font-weight:700;font-size:14px}
+.note{font-size:13px;color:var(--muted)}
+.tip{background:var(--gold-soft);border:1px solid #ecd39f;border-radius:12px;padding:10px 14px;font-size:14px}
+.timeline{position:relative;padding-left:22px}
+.timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.ms{position:relative;margin-bottom:16px}
+.ms:before{content:"";position:absolute;left:-20px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--gold)}
+.ms.past:before{border-color:#b9ab9c;background:#e9e1d6}
+.ms.next:before{border-color:var(--maroon);background:var(--maroon)}
+.ms h4{margin:0;font-size:15px}
+.ms .date{font-weight:700;color:var(--maroon);font-size:13px}
+.unitcard h3{margin:0 0 2px;font-size:17px}
+.people{margin:6px 0 10px;font-size:14px}
+.bar{height:8px;background:#f1e9dc;border-radius:99px;overflow:hidden;margin:6px 0 2px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),#2e9b94)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-top:0}
+ul.clean{margin:6px 0 0;padding-left:18px}
+footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transition:.2s;pointer-events:none}
+.toast.on{opacity:1}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Agihan Tugas AJK · JPK UiTMCTKKT</div>
+    <h1>Warna-Warni Warisan Terengganu 2026</h1>
+    <div class="meta">
+      <span><b>Tarikh:</b> 12–13 Disember 2026 (Jumaat &amp; Sabtu)</span>
+      <span><b>Tempat:</b> Dewan &amp; Dataran Lestari, UiTMCTKKT</span>
+      <span><b>Ketua Program:</b> Khairi Rahimi Khyril Norrahim</span>
+    </div>
+    <div class="countdown"><b id="cd">–</b><span id="cdl">hari lagi ke program</span></div>
+  </div>
+</header>
+
+<nav class="tabs"><div class="wrap">
+  <a href="#saya" data-v="saya">Saya</a>
+  <a href="#deadline" data-v="deadline">Deadline</a>
+  <a href="#semua" data-v="semua">Semua</a>
+  <a href="#program" data-v="program">Program</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- SAYA -->
+<section id="v-saya">
+  <figure class="banner"><img src="img/batik.jpg" alt="Peserta mencanting batik" loading="lazy"><figcaption><b>Setiap tugas, satu corak.</b>Aktiviti mencanting batik bersama Noor Arfa Batik, 2025</figcaption></figure>
+  <h2>Tugas saya</h2>
+  <p class="sub">Pilih nama anda untuk lihat tugas dan tarikh akhir.</p>
+  <div class="toolbar">
+    <select id="who"><option value="">— Pilih nama —</option></select>
+    <button id="copyMine" class="ghost hide">Salin untuk WhatsApp</button>
+  </div>
+  <div id="mine"></div>
+  <p class="note">Tanda siap hanya disimpan dalam pelayar anda sendiri. Kemas kini rasmi dibuat dalam mesyuarat AJK.</p>
+</section>
+
+<!-- DEADLINE -->
+<section id="v-deadline">
+  <figure class="banner"><img src="img/gasing.jpg" alt="Pemain gasing di gelanggang" loading="lazy" style="object-position:center 55%"><figcaption><b>Jangan biar gasing berhenti.</b>Demonstrasi gasing oleh Persatuan Gasing Terengganu, 2025</figcaption></figure>
+  <h2>Garis masa &amp; deadline</h2>
+  <p class="sub">Dikira ke belakang dari hari program. Semua tarikh ialah cadangan dan boleh dipinda dalam mesyuarat.</p>
+  <div class="grid g2">
+    <div class="card"><div class="timeline" id="tl"></div></div>
+    <div>
+      <div class="card" style="margin-bottom:14px">
+        <h3 style="margin:0 0 6px;font-size:17px">Minggu ini</h3>
+        <div id="thisweek"></div>
+      </div>
+      <div class="tip"><b>Dokumen wajib (program berbajet):</b> Surat Permohonan Program, Minit Mesyuarat, Kertas Kerja, Borang C dan Borang AR. Semua boleh didapati di GoogleSite rasmi HEP UiTMCT.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEMUA -->
+<section id="v-semua">
+  <figure class="banner"><img src="img/congkak.jpg" alt="Pelajar bermain congkak" loading="lazy"><figcaption><b>17 AJK, satu pasukan.</b>Pertandingan permainan tradisional, 2025</figcaption></figure>
+  <h2>Semua AJK &amp; unit</h2>
+  <p class="sub">17 ahli jawatankuasa mengikut unit, dengan skop tugas dan kemajuan setiap unit.</p>
+  <div class="toolbar">
+    <button id="copyAll" class="ghost">Salin semua tugas</button>
+  </div>
+  <div class="grid g2" id="units"></div>
+  <div class="card" style="margin-top:14px">
+    <b>Penasihat:</b> Encik Muhammad Rafie Ruslan (Pegawai Eksekutif HEP) · Puan Nurmaisari Che Anuar
+    <div class="note">Peranan: menyemak semula program dan perancangan strategik.</div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="v-program">
+  <figure class="banner"><img src="img/wau-dewan.jpg" alt="Pameran wau di Dewan Lestari" loading="lazy"><figcaption><b>Warna-Warni Warisan Terengganu</b>Pameran wau di Dewan Lestari, 2025</figcaption></figure>
+  <h2>Maklumat program</h2>
+  <p class="sub">Draf tentatif berdasarkan pelaksanaan 12–13 Disember 2025. Sahkan semula dengan rakan kolaborasi.</p>
+  <h3 style="margin:0 0 10px;font-size:17px">Poster 2025 <span class="note" style="font-weight:400">· rujukan untuk AJK Multimedia (klik untuk besarkan)</span></h3>
+  <div class="posters">
+    <button data-full="img/poster-program.jpg"><img src="img/poster-program.jpg" alt="Poster program" loading="lazy"></button>
+    <button data-full="img/poster-aktiviti.jpg"><img src="img/poster-aktiviti.jpg" alt="Poster aktiviti" loading="lazy"></button>
+    <button data-full="img/poster-funrun.jpg"><img src="img/poster-funrun.jpg" alt="Poster Fun Run Kuih Kita" loading="lazy"></button>
+    <button data-full="img/poster-batik.jpg"><img src="img/poster-batik.jpg" alt="Poster mencanting batik" loading="lazy"></button>
+  </div>
+  <div class="strip">
+    <figure><img src="img/hero-wau.jpg" alt="" loading="lazy"><figcaption>Pameran wau</figcaption></figure>
+    <figure><img src="img/gasing-gelanggang.jpg" alt="" loading="lazy"><figcaption>Gasing</figcaption></figure>
+    <figure><img src="img/congkak-dekat.jpg" alt="" loading="lazy"><figcaption>Congkak</figcaption></figure>
+    <figure><img src="img/vendor.jpg" alt="" loading="lazy"><figcaption>Jualan vendor</figcaption></figure>
+  </div>
+  <div style="height:18px"></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin:0 0 8px;font-size:17px">Hari 1 · Jumaat, 12 Dis 2026</h3>
+      <table><tr><th>Masa</th><th>Aktiviti</th></tr>
+        <tr><td>8:00 – 8:30 pg</td><td>Kehadiran &amp; pendaftaran</td></tr>
+        <tr><td>8:30 – 9:30 pg</td><td>Senamrobik</td></tr>
+        <tr><td>9:30 – 11:30 pg</td><td>Larian Fun Run Kuih Kita</td></tr>
+        <tr><td>11:30 pg – 3:00 ptg</td><td>Rehat &amp; Solat Jumaat</td></tr>
+        <tr><td>3:00 – 5:00 ptg</td><td>Majlis rasmi: ketibaan VIP, Negaraku &amp; Wawasan Setia Warga UiTM, doa, ucapan, persembahan nyanyian warisan, gimik &amp; montaj, hadiah, cabutan bertuah, bergambar</td></tr>
+        <tr><td>8:00 – 10:00 mlm</td><td>Malam Sanggar Jiwa Budaya</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 8px;font-size:17px">Hari 2 · Sabtu, 13 Dis 2026</h3>
+      <table><tr><th>Masa</th><th>Aktiviti</th></tr>
+        <tr><td>9:00 – 9:30 pg</td><td>Kehadiran &amp; pendaftaran</td></tr>
+        <tr><td>9:30 – 9:45 pg</td><td>Taklimat program</td></tr>
+        <tr><td>9:45 pg – 1:00 ptg</td><td>Demonstrasi &amp; mencanting batik (Noor Arfa Batik), demonstrasi &amp; pameran gasing (Persatuan Gasing Terengganu), pertunjukan &amp; pembuatan wau (Persatuan Wau Terengganu), permainan tradisional</td></tr>
+        <tr><td>1:00 – 2:00 ptg</td><td>Penyampaian hadiah</td></tr>
+        <tr><td>2:00 ptg</td><td>Sesi bergambar &amp; bersurai</td></tr>
+      </table>
+      <div class="note" style="margin-top:8px">Permainan tradisional: Teng-Teng, Congkak, Ceper, Dam Haji, Batu Seremban, Bola Cetong, Sepak Bulu Ayam.</div>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 8px;font-size:17px">Rakan kolaborasi</h3>
+      <ul class="clean">
+        <li>Noor Arfa Holdings (Arfa Batik)</li>
+        <li>Persatuan Gasing Terengganu</li>
+        <li>Persatuan Wau Negeri Terengganu</li>
+        <li>Lembaga Muzium Negeri Terengganu</li>
+        <li>Extra Joss Malaysia (Fun Run)</li>
+      </ul>
+      <div class="note" style="margin-top:8px">Surat kolaborasi 2025 ada dalam folder <i>SURAT JEMPUTAN BERJAYA</i>. Kemas kini tarikh sebelum hantar semula.</div>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 8px;font-size:17px">Penambahbaikan daripada 2025</h3>
+      <ul class="clean">
+        <li>Hebahan program lebih awal <span class="pill unit">Multimedia</span></li>
+        <li>Perkemas pengendalian &amp; ikut kesesuaian masa <span class="pill unit">Protokol</span></li>
+        <li>Hadiah berlabel nama penerima <span class="pill unit">Tugas Khas</span></li>
+        <li>Kaji semula kedudukan VIP <span class="pill unit">Protokol</span></li>
+        <li>Letak nama kuih di setiap checkpoint <span class="pill unit">Logistik</span></li>
+        <li>Buang logo CapCut pada video montaj <span class="pill unit">Multimedia</span></li>
+      </ul>
+      <div class="note" style="margin-top:8px">Sumber: Laporan Program 2025 (bahagian 3.3 &amp; 5.2). Semua cadangan ini sudah dimasukkan sebagai tugas.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Disediakan untuk Ketua Program berdasarkan Kertas Kerja &amp; Minit Mesyuarat (10.03.2025) dan Laporan Program 2025. Ahli jawatankuasa mengikut susunan 2025; pinda jika ada pertukaran. Gambar: dokumentasi program 2025.
+</footer>
+</main>
+<div class="toast" id="toast">Disalin</div>
+<div class="lb" id="lb" role="dialog" aria-label="Poster"><img alt=""></div>
+
+<script>
+const EVENT = new Date("2026-12-12T08:00:00+08:00");
+
+const UNITS = [
+  {id:"ketua", name:"Ketua Program", people:["Khairi Rahimi Khyril Norrahim"], scope:"Menjalankan perjumpaan jawatankuasa berkala dan menyelaras semua unit."},
+  {id:"penolong", name:"Penolong Ketua Program", people:["Nur Alia Nadira Binti Yatiseman @ Zaki"], scope:"Membantu Ketua Program menguruskan program."},
+  {id:"setiausaha", name:"Setiausaha", people:["Noor Fatihah Binti Samsuddin"], scope:"Menyediakan dokumen dan menghantar laporan aktiviti 2 minggu selepas program."},
+  {id:"bendahari", name:"Bendahari", people:["Aizat Rahimi Bin Rosman"], scope:"Menguruskan yuran dan bajet yang diluluskan serta membuat laporan kewangan."},
+  {id:"protokol", name:"AJK Protokol", people:["Nurkhairani Ardini Binti Mohd Noor","Hajar Sakinah Binti Mohd Arif"], scope:"Memastikan program mengikut tentatif dan berjalan lancar."},
+  {id:"logistik", name:"AJK Logistik", people:["Aiman Fikri Bin Zulzaimi","Muhammad Alif Bin Anuar"], scope:"Menempah keperluan dari UPF dan membuat layout program."},
+  {id:"hubungan", name:"AJK Hubungan Luar", people:["Muhammad Asyraf Bin Mohd Azman"], scope:"Menguruskan VIP dan agensi luar."},
+  {id:"multimedia", name:"AJK Multimedia", people:["Nur Ain Elyianee Binti Mohd Ruslan","Nurfatnin Balqis Binti Abdul Karim"], scope:"Membuat ayat hebahan dan poster untuk publisiti program."},
+  {id:"khas", name:"AJK Tugas-tugas Khas", people:["Aina Syafeeqa Binti Mohd Azli","Nur Ain Sofiyah Binti Md Rashidy"], scope:"Membantu AJK lain."},
+  {id:"daftar", name:"AJK Pendaftaran", people:["Adelina Mirza Binti Mohammad Aiman Bong","Siti Nur Umairah Binti Azhar"], scope:"Menyediakan Google Form pendaftaran dan borang soal selidik."},
+  {id:"kebersihan", name:"AJK Kebersihan & Makanan", people:["Ahmad Irfan Bin Hishamuddin","Fawwez Arif Bin Faiz"], scope:"Menempah makanan, memastikan makanan mencukupi dan kebersihan kawasan."}
+];
+
+// id, unit, task, due (YYYY-MM-DD), note
+const TASKS = [
+  ["k1","ketua","Panggil mesyuarat AJK pertama 2026 & sahkan semula AJK","2026-11-09"],
+  ["k2","ketua","Kemas kini kertas kerja 2026 (tarikh, tentatif, bajet)","2026-11-12"],
+  ["k3","ketua","Mesyuarat kemajuan AJK ke-2","2026-11-23"],
+  ["k4","ketua","Mesyuarat akhir & taklimat AJK","2026-12-08"],
+  ["k5","ketua","Raptai penuh bersama semua unit","2026-12-10"],
+  ["p1","penolong","Semak draf kertas kerja & tentatif bersama Ketua","2026-11-11"],
+  ["p2","penolong","Pantau kemajuan setiap unit dan lapor kepada Ketua setiap minggu","2026-11-20"],
+  ["p3","penolong","Sediakan senarai semak hari program (run sheet)","2026-12-05"],
+  ["s1","setiausaha","Sediakan minit mesyuarat pertama","2026-11-10"],
+  ["s2","setiausaha","Lengkapkan Surat Permohonan, Borang C & Borang AR","2026-11-13"],
+  ["s3","setiausaha","Hantar dokumen permohonan program kepada HEP","2026-11-13","Dokumen wajib program berbajet"],
+  ["s4","setiausaha","Sediakan borang penilaian KI (L1-HEP/PKP/20)","2026-12-05"],
+  ["s5","setiausaha","Hantar laporan penutup aktiviti (L2-HEP/PKP/21) di laman HEP","2026-12-27","14 hari selepas program tamat"],
+  ["b1","bendahari","Kemas kini implikasi kewangan & sebut harga","2026-11-12"],
+  ["b2","bendahari","Urus kutipan yuran mencanting batik","2026-12-01"],
+  ["b3","bendahari","Simpan resit & bayaran sepanjang persiapan","2026-12-11"],
+  ["b4","bendahari","Laporan kewangan sebenar (Lampiran 2)","2026-12-20"],
+  ["pr1","protokol","Draf aturcara majlis rasmi & teks pengacara","2026-11-27"],
+  ["pr2","protokol","Pelan kedudukan VIP (kaji semula daripada 2025)","2026-12-03","Penambahbaikan 2025"],
+  ["pr3","protokol","Kawal masa ikut tentatif pada hari program","2026-12-12"],
+  ["l1","logistik","Mohon fasiliti UPF: dewan, dataran, kerusi, meja, PA system","2026-11-20","Selepas surat kelulusan program"],
+  ["l2","logistik","Layout Dewan & Dataran Lestari","2026-11-27"],
+  ["l3","logistik","Laluan Fun Run & label nama kuih di setiap checkpoint","2026-12-05","Penambahbaikan 2025"],
+  ["l4","logistik","Sediakan peralatan permainan tradisional","2026-12-05"],
+  ["l5","logistik","Pasang tapak & susun atur sehari sebelum","2026-12-11"],
+  ["h1","hubungan","Hantar surat kolaborasi: Arfa Batik, Gasing, Wau, Muzium, Extra Joss","2026-11-16"],
+  ["h2","hubungan","Sahkan semua rakan kolaborasi & keperluan mereka","2026-11-25"],
+  ["h3","hubungan","Hantar surat jemputan VIP / perasmi","2026-11-25"],
+  ["h4","hubungan","Sahkan kehadiran VIP & sediakan cenderahati","2026-12-07"],
+  ["m1","multimedia","Poster & ayat hebahan pertama (hebah lebih awal)","2026-11-18","Penambahbaikan 2025"],
+  ["m2","multimedia","Hebahan berkala di Telegram & media sosial","2026-12-10"],
+  ["m3","multimedia","Video montaj tanpa logo CapCut","2026-12-08","Penambahbaikan 2025"],
+  ["m4","multimedia","Banner program","2026-12-01"],
+  ["m5","multimedia","Dokumentasi gambar untuk Laporan Bergambar (Lampiran 3)","2026-12-13"],
+  ["t1","khas","Senarai hadiah & label nama penerima","2026-12-05","Penambahbaikan 2025"],
+  ["t2","khas","Gimik majlis rasmi & cabutan bertuah","2026-12-05"],
+  ["t3","khas","Bantu unit yang ketinggalan (ikut arahan Ketua)","2026-12-11"],
+  ["d1","daftar","Google Form pendaftaran peserta & yuran batik","2026-11-18"],
+  ["d2","daftar","Borang soal selidik / penilaian peserta","2026-12-05"],
+  ["d3","daftar","Kaunter pendaftaran & senarai kehadiran (Lampiran 4)","2026-12-12"],
+  ["c1","kebersihan","Sebut harga & tempahan makanan AJK, VIP & penyanyi","2026-12-01"],
+  ["c2","kebersihan","Tong sampah, plastik & jadual kebersihan","2026-12-08"],
+  ["c3","kebersihan","Kebersihan tapak selepas program","2026-12-13"]
+].map(([id,unit,task,due,note])=>({id,unit,task,due,note}));
+
+const MILESTONES = [
+  ["2026-11-09","Mesyuarat AJK pertama","Sahkan AJK & agihan tugas"],
+  ["2026-11-13","Dokumen permohonan ke HEP","Kertas kerja, surat, minit, Borang C & AR"],
+  ["2026-11-16","Surat kolaborasi dihantar","5 rakan kolaborasi"],
+  ["2026-11-18","Hebahan & pendaftaran dibuka","Poster pertama + Google Form"],
+  ["2026-11-20","Permohonan fasiliti UPF","Selepas kelulusan program"],
+  ["2026-11-25","VIP & kolaborator disahkan",""],
+  ["2026-12-01","Tempahan makanan, banner & yuran batik",""],
+  ["2026-12-05","Hadiah, checkpoint, run sheet siap",""],
+  ["2026-12-08","Mesyuarat akhir & montaj siap",""],
+  ["2026-12-10","Raptai penuh",""],
+  ["2026-12-11","Pasang tapak",""],
+  ["2026-12-12","Hari 1 program","Senamrobik, Fun Run, majlis rasmi, Malam Sanggar"],
+  ["2026-12-13","Hari 2 program","Batik, gasing, wau, permainan tradisional"],
+  ["2026-12-27","Laporan penutup ke HEP","Tarikh akhir 14 hari"]
+];
+
+const $ = s=>document.querySelector(s);
+const unitOf = id=>UNITS.find(u=>u.id===id);
+const fmt = d=>new Date(d+"T00:00:00+08:00").toLocaleDateString("ms-MY",{day:"numeric",month:"short"});
+const today = ()=>{const n=new Date(); return new Date(n.toLocaleDateString("en-CA",{timeZone:"Asia/Kuala_Lumpur"})+"T00:00:00+08:00");};
+const daysTo = d=>Math.round((new Date(d+"T00:00:00+08:00")-today())/864e5);
+
+let done = {};
+try{ done = JSON.parse(localStorage.getItem("www26-done")||"{}"); }catch(e){}
+function save(){ try{ localStorage.setItem("www26-done",JSON.stringify(done)); }catch(e){} }
+
+function dueBadge(t){
+  if(done[t.id]) return '<span class="pill done">Siap</span>';
+  const n = daysTo(t.due);
+  if(n<0) return `<span class="pill late">Lewat ${-n} hari</span>`;
+  if(n===0) return '<span class="pill late">Hari ini</span>';
+  return `<span class="pill">${n} hari lagi</span>`;
+}
+function taskRow(t,showUnit){
+  const u = unitOf(t.unit);
+  return `<div class="task ${done[t.id]?'isdone':''}">
+    <input type="checkbox" data-id="${t.id}" ${done[t.id]?'checked':''} aria-label="Tanda siap">
+    <div class="t"><b>${t.task}</b>${showUnit?`<span class="pill unit">${u.name}</span> `:''}${t.note?`<small>${t.note}</small>`:''}</div>
+    <div class="right"><div class="due">${fmt(t.due)}</div>${dueBadge(t)}</div>
+  </div>`;
+}
+function bind(root){
+  root.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.addEventListener('change',()=>{
+    done[cb.dataset.id]=cb.checked; if(!cb.checked) delete done[cb.dataset.id]; save(); renderAll();
+  }));
+}
+
+function renderCountdown(){
+  const n = daysTo("2026-12-12");
+  $("#cd").textContent = n>0 ? n : (n===0||n===-1 ? "Hari ini" : "Selesai");
+  $("#cdl").textContent = n>0 ? "hari lagi ke program" : "";
+}
+
+function renderSaya(){
+  const sel = $("#who");
+  if(sel.options.length===1){
+    UNITS.forEach(u=>u.people.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=`${p} — ${u.name}`;sel.appendChild(o);}));
+    try{ const w=localStorage.getItem("www26-who"); if(w) sel.value=w; }catch(e){}
+  }
+  const p = sel.value, box=$("#mine");
+  $("#copyMine").classList.toggle("hide",!p);
+  if(!p){ box.innerHTML='<div class="card note">Belum pilih nama.</div>'; return; }
+  const u = UNITS.find(u=>u.people.includes(p));
+  const ts = TASKS.filter(t=>t.unit===u.id).sort((a,b)=>a.due.localeCompare(b.due));
+  const mates = u.people.filter(x=>x!==p);
+  box.innerHTML = `<div class="card">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+      <div><span class="pill unit">${u.name}</span> <b style="margin-left:6px">${p}</b></div>
+      <div class="note">${mates.length?`Bersama: ${mates.join(", ")}`:"Unit seorang"}</div>
+    </div>
+    <div class="note" style="margin-bottom:6px">Skop: ${u.scope}</div>
+    ${ts.map(t=>taskRow(t,false)).join("")}
+  </div>`;
+  bind(box);
+}
+
+function renderDeadline(){
+  const t0 = today(); let nextSet=false;
+  $("#tl").innerHTML = MILESTONES.map(([d,h,s])=>{
+    const n=daysTo(d); let cls = n<0?'past':'';
+    if(n>=0 && !nextSet){cls='next';nextSet=true;}
+    return `<div class="ms ${cls}"><div class="date">${fmt(d)}${n>=0?` · ${n===0?'hari ini':n+' hari lagi'}`:''}</div><h4>${h}</h4>${s?`<div class="note">${s}</div>`:''}</div>`;
+  }).join("");
+  const wk = TASKS.filter(t=>!done[t.id] && daysTo(t.due)<=7).sort((a,b)=>a.due.localeCompare(b.due));
+  $("#thisweek").innerHTML = wk.length ? wk.map(t=>taskRow(t,true)).join("") : '<div class="note">Tiada tugas dalam 7 hari ini.</div>';
+  bind($("#thisweek"));
+}
+
+function renderSemua(){
+  $("#units").innerHTML = UNITS.map(u=>{
+    const ts=TASKS.filter(t=>t.unit===u.id).sort((a,b)=>a.due.localeCompare(b.due));
+    const d=ts.filter(t=>done[t.id]).length, pct=Math.round(d/ts.length*100);
+    return `<div class="card unitcard">
+      <h3>${u.name}</h3>
+      <div class="people">${u.people.join("<br>")}</div>
+      <div class="note">${u.scope}</div>
+      <div class="bar"><i style="width:${pct}%"></i></div>
+      <div class="note">${d}/${ts.length} tugas siap</div>
+      <div style="margin-top:6px">${ts.map(t=>taskRow(t,false)).join("")}</div>
+    </div>`;
+  }).join("");
+  bind($("#units"));
+}
+
+function renderAll(){ renderCountdown(); renderSaya(); renderDeadline(); renderSemua(); }
+
+function textFor(u){
+  const ts=TASKS.filter(t=>t.unit===u.id).sort((a,b)=>a.due.localeCompare(b.due));
+  return `*${u.name}* — ${u.people.join(", ")}\n`+ts.map(t=>`• ${t.task} (${fmt(t.due)})`).join("\n");
+}
+async function copy(txt){
+  try{ await navigator.clipboard.writeText(txt); toast("Disalin — tampal dalam WhatsApp"); }
+  catch(e){ toast("Tidak dapat menyalin di sini"); }
+}
+function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("on"); setTimeout(()=>t.classList.remove("on"),1800); }
+
+$("#who").addEventListener("change",e=>{ try{localStorage.setItem("www26-who",e.target.value);}catch(_){} renderSaya(); });
+$("#copyMine").addEventListener("click",()=>{
+  const p=$("#who").value; const u=UNITS.find(u=>u.people.includes(p));
+  copy(`*Warna-Warni Warisan Terengganu 2026*\nTugas untuk ${p}\n\n`+textFor(u));
+});
+$("#copyAll").addEventListener("click",()=>copy(`*AGIHAN TUGAS — WARNA-WARNI WARISAN TERENGGANU 2026*\n12–13 Dis 2026 · Dewan & Dataran Lestari\n\n`+UNITS.map(textFor).join("\n\n")));
+
+const VIEWS=["saya","deadline","semua","program"];
+function route(){
+  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "semua";
+  VIEWS.forEach(x=>{ $("#v-"+x).classList.toggle("on",x===v); document.querySelector(`nav a[data-v=${x}]`).classList.toggle("on",x===v); });
+  window.scrollTo({top:0});
+}
+window.addEventListener("hashchange",route);
+document.querySelectorAll(".posters button").forEach(b=>b.addEventListener("click",()=>{
+  const lb=$("#lb"); lb.querySelector("img").src=b.dataset.full; lb.classList.add("on");
+}));
+$("#lb").addEventListener("click",()=>$("#lb").classList.remove("on"));
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") $("#lb").classList.remove("on"); });
+renderAll(); route();
+</script>
+</body>
+</html>
