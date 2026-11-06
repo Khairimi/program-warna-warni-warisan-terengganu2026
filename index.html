@@ -42,6 +42,35 @@ header.hero{
 .lb{position:fixed;inset:0;background:rgba(20,10,8,.88);display:none;align-items:center;justify-content:center;z-index:20;padding:20px;cursor:zoom-out}
 .lb.on{display:flex}
 .lb img{max-width:100%;max-height:100%;border-radius:8px}
+/* Recap 2025 */
+.stats{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);margin:6px 0 22px}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.stat b{display:block;font-family:Fraunces,serif;font-size:34px;line-height:1;color:var(--maroon)}
+.stat span{font-size:13px;color:var(--muted)}
+h3.sec{font-family:Fraunces,serif;font-size:21px;margin:26px 0 10px}
+.acts{display:grid;gap:14px}
+@media(min-width:760px){.acts{grid-template-columns:repeat(3,1fr)}}
+.act{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.act img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.act .ph{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:#fff;font-family:Fraunces,serif;font-size:22px;
+  background:radial-gradient(circle at 20% 20%, rgba(200,144,46,.45) 0 2px, transparent 3px) 0 0/18px 18px, linear-gradient(135deg,var(--maroon),#3d0f17)}
+.act div.t{padding:12px 14px}
+.act h4{margin:0 0 4px;font-size:16px}
+.act p{margin:0;font-size:14px;color:var(--muted)}
+.day{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.partners{display:grid;gap:12px}
+@media(min-width:760px){.partners{grid-template-columns:repeat(3,1fr)}}
+.partner{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:12px 14px}
+.partner b{display:block}
+.partner span{font-size:14px;color:var(--muted)}
+.letter{background:#fffdf8;border:1px solid #ecd39f;border-radius:var(--radius);padding:24px 22px;position:relative;
+  background-image:linear-gradient(90deg,rgba(200,144,46,.12) 0 6px,transparent 6px)}
+.letter p{margin:0 0 12px;font-size:15.5px;line-height:1.7}
+.letter .sig{margin-top:16px;font-family:Fraunces,serif;font-size:18px;color:var(--maroon)}
+.letter .sig small{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:13px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips span{background:var(--teal-soft);color:var(--teal);font-weight:600;font-size:13px;padding:5px 11px;border-radius:999px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 header.hero .wrap{padding:0}
 .eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--gold-soft);font-weight:600}
@@ -122,6 +151,7 @@ footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
   <a href="#deadline" data-v="deadline">Deadline</a>
   <a href="#semua" data-v="semua">Semua</a>
   <a href="#program" data-v="program">Program</a>
+  <a href="#recap" data-v="recap">Recap 2025</a>
 </div></nav>
 
 <main class="wrap">
@@ -236,6 +266,72 @@ footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
       </ul>
       <div class="note" style="margin-top:8px">Sumber: Laporan Program 2025 (bahagian 3.3 &amp; 5.2). Semua cadangan ini sudah dimasukkan sebagai tugas.</div>
     </div>
+  </div>
+</section>
+
+<!-- RECAP 2025 -->
+<section id="v-recap">
+  <figure class="banner" style="height:clamp(170px,30vw,280px)"><img src="img/hero-wau.jpg" alt="Pameran wau di Dewan Lestari" loading="lazy"><figcaption><b>Recap Warna-Warni Warisan Terengganu 2025</b>12 &amp; 13 Disember 2025 · Dewan &amp; Dataran Lestari, UiTMCTKKT</figcaption></figure>
+  <h2>Apa yang kita capai tahun lepas</h2>
+  <p class="sub">Supaya AJK 2026 tahu dari mana kita bermula. Angka di bawah daripada Laporan Program 2025.</p>
+
+  <div class="stats">
+    <div class="stat"><b>281</b><span>peserta hadir dan direkodkan</span></div>
+    <div class="stat"><b>2</b><span>hari program, termasuk Malam Sanggar Jiwa Budaya</span></div>
+    <div class="stat"><b>5</b><span>rakan kolaborasi luar</span></div>
+    <div class="stat"><b>99%</b><span>peserta setuju program bina kemahiran insaniah (103 daripada 104)</span></div>
+  </div>
+
+  <div class="card">
+    <b>Hasil utama program</b>
+    <ul class="clean">
+      <li>Pelajar lebih memahami dan menghayati warisan Terengganu melalui aktiviti tradisional secara langsung.</li>
+      <li>Pendedahan praktikal kepada seni batik, wau dan gasing.</li>
+      <li>Gaya hidup sihat melalui senamrobik dan Larian Fun Run Kuih Kita.</li>
+      <li>AJK mengasah kemahiran komunikasi, kepimpinan dan pengurusan acara. Semua 23 AJK yang menilai bersetuju program ini membina kemahiran mereka.</li>
+      <li>Hubungan universiti dengan persatuan dan penggiat warisan tempatan diperkukuh.</li>
+    </ul>
+    <div class="note" style="margin-top:8px">Ulasan penasihat: program dilaksanakan dengan baik dan teratur.</div>
+  </div>
+
+  <h3 class="sec">Aktiviti 2025</h3>
+  <div class="acts">
+    <div class="act"><img src="img/poster-funrun.jpg" alt="Poster Fun Run Kuih Kita" loading="lazy" style="object-position:center 20%"><div class="t"><div class="day">Hari 1 · Pagi</div><h4>Senamrobik &amp; Fun Run Kuih Kita</h4><p>Larian 2 km dengan checkpoint kuih tradisional, dibuka dengan senamrobik beramai-ramai.</p></div></div>
+    <div class="act"><div class="ph">Majlis Rasmi</div><div class="t"><div class="day">Hari 1 · Petang</div><h4>Perasmian &amp; persembahan</h4><p>Ketibaan VIP, nyanyian bertemakan warisan, gimik penutup, tayangan montaj, hadiah dan cabutan bertuah.</p></div></div>
+    <div class="act"><div class="ph">Malam Sanggar<br>Jiwa Budaya</div><div class="t"><div class="day">Hari 1 · Malam</div><h4>Malam Sanggar Jiwa Budaya</h4><p>Malam persembahan budaya untuk warga kampus.</p></div></div>
+    <div class="act"><img src="img/recap-batik.jpg" alt="Peserta mencanting batik" loading="lazy"><div class="t"><div class="day">Hari 2</div><h4>Mencanting batik</h4><p>Demonstrasi, aktiviti mencanting dan pameran batik bersama Noor Arfa Batik.</p></div></div>
+    <div class="act"><img src="img/wau-dewan.jpg" alt="Pameran dan pembuatan wau" loading="lazy"><div class="t"><div class="day">Hari 2</div><h4>Wau</h4><p>Pertunjukan dan cara pembuatan wau oleh Persatuan Wau Terengganu.</p></div></div>
+    <div class="act"><img src="img/recap-gasing.jpg" alt="Demonstrasi gasing" loading="lazy"><div class="t"><div class="day">Hari 2</div><h4>Gasing</h4><p>Demonstrasi dan pameran koleksi gasing oleh Persatuan Gasing Terengganu.</p></div></div>
+    <div class="act"><img src="img/recap-congkak.jpg" alt="Pelajar bermain congkak" loading="lazy"><div class="t"><div class="day">Hari 2</div><h4>Permainan tradisional</h4><p>Teng-Teng, Congkak, Ceper, Dam Haji, Batu Seremban, Bola Cetong dan Sepak Bulu Ayam.</p></div></div>
+    <div class="act"><img src="img/recap-tengteng.jpg" alt="Peserta bermain teng-teng" loading="lazy" style="object-position:center 65%"><div class="t"><div class="day">Hari 2</div><h4>Teng-Teng</h4><p>Antara permainan paling meriah di Dataran Lestari.</p></div></div>
+    <div class="act"><img src="img/vendor.jpg" alt="Gerai jualan vendor" loading="lazy"><div class="t"><div class="day">Sepanjang program</div><h4>Jualan vendor</h4><p>Gerai makanan dan minuman untuk peserta dan pengunjung.</p></div></div>
+  </div>
+
+  <h3 class="sec">Rakan kolaborasi 2025</h3>
+  <div class="partners">
+    <div class="partner"><b>Noor Arfa Holdings (Arfa Batik)</b><span>Demonstrasi, aktiviti mencanting dan pameran batik</span></div>
+    <div class="partner"><b>Persatuan Wau Negeri Terengganu</b><span>Pertunjukan wau dan cara pembuatan wau</span></div>
+    <div class="partner"><b>Persatuan Gasing Terengganu</b><span>Demonstrasi gasing dan pameran koleksi</span></div>
+    <div class="partner"><b>Lembaga Muzium Negeri Terengganu</b><span>Kolaborasi pameran warisan</span></div>
+    <div class="partner"><b>Extra Joss Malaysia</b><span>Kolaborasi Larian Fun Run Kuih Kita</span></div>
+    <div class="partner"><b>MPP UiTM Cawangan Terengganu</b><span>Penganjur bersama dengan JPK UiTMCTKKT</span></div>
+  </div>
+
+  <h3 class="sec">Penghargaan untuk AJK 2025</h3>
+  <div class="letter">
+    <p>Assalamualaikum dan salam sejahtera buat semua AJK Warna-Warni Warisan Terengganu 2025,</p>
+    <p>Program ini bermula sebagai satu cadangan dalam mesyuarat JPK. Tarikh asalnya Mei, kemudian terpaksa dipinda ke Disember, dan banyak perkara berubah di tengah jalan. Tetapi kita tidak berhenti. Pada 12 dan 13 Disember 2025, Dewan dan Dataran Lestari dipenuhi 281 peserta yang datang untuk mengenali batik, wau, gasing dan permainan tradisional Terengganu.</p>
+    <p>Kejayaan itu bukan milik seorang ketua. Ia milik setiap AJK yang menyusun tapak, menguruskan pendaftaran, menjaga checkpoint, menghubungi rakan kolaborasi, menyunting video dan menyiapkan laporan selepas semuanya selesai. Terima kasih kerana memberi masa, tenaga dan kepercayaan kepada program ini dan kepada satu sama lain.</p>
+    <p>Maklum balas tahun lepas juga jujur dengan kita: hebahan perlu lebih awal, kedudukan VIP perlu dikaji semula, hadiah perlu berlabel nama. Itu bukan kegagalan. Itulah peta untuk kita buat lebih baik.</p>
+    <p>Kepada AJK 2025, terima kasih atas segalanya. Kepada AJK 2026, inilah warisan yang kita sambung. Jom buat lebih baik bersama-sama.</p>
+    <div class="sig">Khairi Rahimi Khyril Norrahim<small>Ketua Program, Warna-Warni Warisan Terengganu · JPK UiTMCTKKT</small></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <b>Terima kasih khas kepada setiap unit 2025</b>
+    <div class="chips">
+      <span>Setiausaha</span><span>Bendahari</span><span>Protokol</span><span>Pendaftaran</span><span>Logistik</span><span>Teknikal</span><span>Multimedia</span><span>Hubungan Luar</span><span>Penjanaan</span><span>Persembahan (Kelab Kebudayaan)</span><span>Fun Run</span><span>3K</span><span>Tugas-tugas Khas</span>
+    </div>
+    <div class="note" style="margin-top:10px">Serta penasihat program, Puan Nurmaisari Che Anuar dan Encik Muhammad Rafie Ruslan, atas bimbingan dari awal hingga laporan akhir.</div>
   </div>
 </section>
 
@@ -434,7 +530,7 @@ $("#copyMine").addEventListener("click",()=>{
 });
 $("#copyAll").addEventListener("click",()=>copy(`*AGIHAN TUGAS — WARNA-WARNI WARISAN TERENGGANU 2026*\n12–13 Dis 2026 · Dewan & Dataran Lestari\n\n`+UNITS.map(textFor).join("\n\n")));
 
-const VIEWS=["saya","deadline","semua","program"];
+const VIEWS=["saya","deadline","semua","program","recap"];
 function route(){
   const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "semua";
   VIEWS.forEach(x=>{ $("#v-"+x).classList.toggle("on",x===v); document.querySelector(`nav a[data-v=${x}]`).classList.toggle("on",x===v); });
