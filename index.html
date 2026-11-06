@@ -83,6 +83,15 @@ nav.tabs{position:sticky;top:0;z-index:5;background:rgba(251,246,238,.94);backdr
 nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto}
 nav.tabs a{padding:13px 14px;text-decoration:none;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
 nav.tabs a.on{color:var(--maroon);border-color:var(--gold)}
+nav.tabs .modes{display:flex;gap:8px;padding-top:10px;padding-bottom:10px}
+nav.tabs .modes a{flex:1;text-align:center;border:1.5px solid var(--line);border-radius:12px;padding:11px 10px;background:#fff;color:var(--muted);font-size:15px}
+nav.tabs .modes a.on{background:var(--maroon);border-color:var(--maroon);color:#fff}
+@media(min-width:760px){nav.tabs .modes a{flex:0 0 auto;min-width:180px}}
+nav.tabs .subtabs{border-top:1px solid var(--line)}
+body.m-recap [data-mode="ajk"], body.m-ajk [data-mode="recap"]{display:none !important}
+.video{position:relative;border-radius:var(--radius);overflow:hidden;background:#1d1210;aspect-ratio:16/9}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.btnlink{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--maroon);color:var(--maroon);background:#fff;border-radius:10px;padding:9px 14px;font-weight:600;font-size:14px}
 section{padding:26px 0 8px;display:none}
 section.on{display:block}
 h2{font-family:Fraunces,serif;font-size:26px;margin:0 0 4px}
@@ -135,24 +144,35 @@ footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
 <body>
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Agihan Tugas AJK · JPK UiTMCTKKT</div>
-    <h1>Warna-Warni Warisan Terengganu 2026</h1>
-    <div class="meta">
+    <div class="eyebrow">JPK UiTMCTKKT · <span data-mode="recap">Recap Program 2025</span><span data-mode="ajk">Agihan Tugas AJK 2026</span></div>
+    <h1>Warna-Warni Warisan Terengganu <span data-mode="recap">2025</span><span data-mode="ajk">2026</span></h1>
+    <div class="meta" data-mode="recap">
+      <span><b>Tarikh:</b> 12–13 Disember 2025</span>
+      <span><b>Tempat:</b> Dewan &amp; Dataran Lestari, UiTMCTKKT</span>
+      <span><b>Peserta:</b> 281 orang</span>
+    </div>
+    <div class="meta" data-mode="ajk">
       <span><b>Tarikh:</b> 12–13 Disember 2026 (Jumaat &amp; Sabtu)</span>
       <span><b>Tempat:</b> Dewan &amp; Dataran Lestari, UiTMCTKKT</span>
       <span><b>Ketua Program:</b> Khairi Rahimi Khyril Norrahim</span>
     </div>
-    <div class="countdown"><b id="cd">–</b><span id="cdl">hari lagi ke program</span></div>
+    <div class="countdown" data-mode="ajk"><b id="cd">–</b><span id="cdl">hari lagi ke program</span></div>
+    <div class="countdown" data-mode="recap"><b>2025</b><span>dari mana kita bermula</span></div>
   </div>
 </header>
 
-<nav class="tabs"><div class="wrap">
-  <a href="#saya" data-v="saya">Saya</a>
-  <a href="#deadline" data-v="deadline">Deadline</a>
-  <a href="#semua" data-v="semua">Semua</a>
-  <a href="#program" data-v="program">Program</a>
-  <a href="#recap" data-v="recap">Recap 2025</a>
-</div></nav>
+<nav class="tabs">
+  <div class="wrap modes">
+    <a href="#recap" data-m="recap">Recap 2025</a>
+    <a href="#saya" data-m="ajk">AJK 2026</a>
+  </div>
+  <div class="wrap subtabs" data-mode="ajk">
+    <a href="#saya" data-v="saya">Tugas Saya</a>
+    <a href="#deadline" data-v="deadline">Deadline</a>
+    <a href="#semua" data-v="semua">Semua AJK</a>
+    <a href="#program" data-v="program">Program 2026</a>
+  </div>
+</nav>
 
 <main class="wrap">
 
@@ -204,22 +224,8 @@ footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
 <!-- PROGRAM -->
 <section id="v-program">
   <figure class="banner"><img src="img/wau-dewan.jpg" alt="Pameran wau di Dewan Lestari" loading="lazy"><figcaption><b>Warna-Warni Warisan Terengganu</b>Pameran wau di Dewan Lestari, 2025</figcaption></figure>
-  <h2>Maklumat program</h2>
-  <p class="sub">Draf tentatif berdasarkan pelaksanaan 12–13 Disember 2025. Sahkan semula dengan rakan kolaborasi.</p>
-  <h3 style="margin:0 0 10px;font-size:17px">Poster 2025 <span class="note" style="font-weight:400">· rujukan untuk AJK Multimedia (klik untuk besarkan)</span></h3>
-  <div class="posters">
-    <button data-full="img/poster-program.jpg"><img src="img/poster-program.jpg" alt="Poster program" loading="lazy"></button>
-    <button data-full="img/poster-aktiviti.jpg"><img src="img/poster-aktiviti.jpg" alt="Poster aktiviti" loading="lazy"></button>
-    <button data-full="img/poster-funrun.jpg"><img src="img/poster-funrun.jpg" alt="Poster Fun Run Kuih Kita" loading="lazy"></button>
-    <button data-full="img/poster-batik.jpg"><img src="img/poster-batik.jpg" alt="Poster mencanting batik" loading="lazy"></button>
-  </div>
-  <div class="strip">
-    <figure><img src="img/hero-wau.jpg" alt="" loading="lazy"><figcaption>Pameran wau</figcaption></figure>
-    <figure><img src="img/gasing-gelanggang.jpg" alt="" loading="lazy"><figcaption>Gasing</figcaption></figure>
-    <figure><img src="img/congkak-dekat.jpg" alt="" loading="lazy"><figcaption>Congkak</figcaption></figure>
-    <figure><img src="img/vendor.jpg" alt="" loading="lazy"><figcaption>Jualan vendor</figcaption></figure>
-  </div>
-  <div style="height:18px"></div>
+  <h2>Program 2026</h2>
+  <p class="sub">Draf tentatif berdasarkan pelaksanaan 2025. Sahkan semula dengan rakan kolaborasi. Gambar, poster dan video 2025 ada di <a href="#recap">Recap 2025</a>.</p>
   <div class="grid g2">
     <div class="card">
       <h3 style="margin:0 0 8px;font-size:17px">Hari 1 · Jumaat, 12 Dis 2026</h3>
@@ -271,7 +277,7 @@ footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
 
 <!-- RECAP 2025 -->
 <section id="v-recap">
-  <figure class="banner" style="height:clamp(170px,30vw,280px)"><img src="img/hero-wau.jpg" alt="Pameran wau di Dewan Lestari" loading="lazy"><figcaption><b>Recap Warna-Warni Warisan Terengganu 2025</b>12 &amp; 13 Disember 2025 · Dewan &amp; Dataran Lestari, UiTMCTKKT</figcaption></figure>
+  <figure class="banner" style="height:clamp(170px,30vw,280px)"><img src="img/recap-sanggar.jpg" alt="Malam Sanggar Jiwa Budaya" loading="lazy"><figcaption><b>Recap Warna-Warni Warisan Terengganu 2025</b>12 &amp; 13 Disember 2025 · Dewan &amp; Dataran Lestari, UiTMCTKKT</figcaption></figure>
   <h2>Apa yang kita capai tahun lepas</h2>
   <p class="sub">Supaya AJK 2026 tahu dari mana kita bermula. Angka di bawah daripada Laporan Program 2025.</p>
 
@@ -292,6 +298,13 @@ footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
       <li>Hubungan universiti dengan persatuan dan penggiat warisan tempatan diperkukuh.</li>
     </ul>
     <div class="note" style="margin-top:8px">Ulasan penasihat: program dilaksanakan dengan baik dan teratur.</div>
+  </div>
+
+  <h3 class="sec">Video program 2025</h3>
+  <div class="video"><iframe src="https://drive.google.com/file/d/1Ix8A2_2pWxZa0ED8KN_Z6BvsVZ2oBlHr/preview" title="Video laporan program Warna-Warni Warisan Terengganu 2025" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+  <div class="toolbar" style="margin-top:12px">
+    <a class="btnlink" href="https://drive.google.com/file/d/1Ix8A2_2pWxZa0ED8KN_Z6BvsVZ2oBlHr/view" target="_blank" rel="noopener">▶ Buka video di Google Drive</a>
+    <a class="btnlink" href="https://vt.tiktok.com/ZSpLyyvrh/" target="_blank" rel="noopener">♪ Publisiti di TikTok</a>
   </div>
 
   <h3 class="sec">Aktiviti 2025</h3>
@@ -315,6 +328,15 @@ footer{color:var(--muted);font-size:13px;padding:30px 0 40px}
     <figure><img src="img/gasing-gelanggang.jpg" alt="" loading="lazy"><figcaption>Gelanggang gasing</figcaption></figure>
   </div>
   <p class="note" style="margin-top:10px">Gambar oleh AJK Multimedia Warna-Warni Warisan Terengganu &amp; Malam Sanggar Jiwa Budaya 2025.</p>
+
+  <h3 class="sec">Poster &amp; publisiti 2025</h3>
+  <div class="posters">
+    <button data-full="img/poster-program.jpg"><img src="img/poster-program.jpg" alt="Poster program" loading="lazy"></button>
+    <button data-full="img/poster-aktiviti.jpg"><img src="img/poster-aktiviti.jpg" alt="Poster aktiviti" loading="lazy"></button>
+    <button data-full="img/poster-funrun.jpg"><img src="img/poster-funrun.jpg" alt="Poster Fun Run Kuih Kita" loading="lazy"></button>
+    <button data-full="img/poster-batik.jpg"><img src="img/poster-batik.jpg" alt="Poster mencanting batik" loading="lazy"></button>
+  </div>
+  <p class="note" style="margin-top:8px">Klik poster untuk besarkan. Boleh dijadikan rujukan AJK Multimedia 2026.</p>
 
   <h3 class="sec">Rakan kolaborasi 2025</h3>
   <div class="partners">
@@ -541,10 +563,21 @@ $("#copyAll").addEventListener("click",()=>copy(`*AGIHAN TUGAS — WARNA-WARNI W
 
 const VIEWS=["saya","deadline","semua","program","recap"];
 function route(){
-  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "semua";
-  VIEWS.forEach(x=>{ $("#v-"+x).classList.toggle("on",x===v); document.querySelector(`nav a[data-v=${x}]`).classList.toggle("on",x===v); });
+  const h=location.hash.slice(1);
+  const v = VIEWS.includes(h) ? h : "recap";
+  const mode = v==="recap" ? "recap" : "ajk";
+  document.body.classList.toggle("m-recap",mode==="recap");
+  document.body.classList.toggle("m-ajk",mode==="ajk");
+  VIEWS.forEach(x=>$("#v-"+x).classList.toggle("on",x===v));
+  document.querySelectorAll("nav a[data-v]").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
+  document.querySelectorAll("nav a[data-m]").forEach(a=>a.classList.toggle("on",a.dataset.m===mode));
+  if(mode==="ajk"){ try{localStorage.setItem("www26-tab",v);}catch(e){} }
   window.scrollTo({top:0});
 }
+document.querySelector('nav a[data-m="ajk"]').addEventListener("click",e=>{
+  let t="saya"; try{ t=localStorage.getItem("www26-tab")||"saya"; }catch(_){}
+  e.preventDefault(); location.hash=t;
+});
 window.addEventListener("hashchange",route);
 document.querySelectorAll(".posters button").forEach(b=>b.addEventListener("click",()=>{
   const lb=$("#lb"); lb.querySelector("img").src=b.dataset.full; lb.classList.add("on");
